@@ -1,0 +1,85 @@
+body {
+    background: linear-gradient(135deg, #161b22, darkslategrey, #333, firebrick);
+    height: 100%;
+}
+
+ul {
+    padding-left: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+.my-form-cont {
+    max-width: 400px;
+    margin: 0 auto 0;
+    color: whitesmoke;
+    padding: 1rem;
+    background-color: #161b22;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin: 0 0 1rem;
+}
+
+.my-card-cont {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+
+/*  */
+
+.myFooter-cont {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+}
+
+.my-f-webpolicy a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.my-f-followUs .fab {
+    color: #333;
+    font-size: 1.5rem;
+    padding: 0.4rem;
+    border-radius: 50%;
+}
+
+.my-f-followUs a {
+    text-decoration: none;
+}
+
+
+/*  */
+
+.fa-instagram {
+    background-color: whitesmoke;
+}
+
+.fa-twitter {
+    background-color: whitesmoke;
+}
+
+.fa-whatsapp {
+    background-color: whitesmoke;
+}
+
+.fa-instagram:hover {
+    color: whitesmoke;
+    background-color: #8a3ab9;
+}
+
+.fa-twitter:hover {
+    color: whitesmoke;
+    background-color: #1DA1F2;
+}
+
+.fa-whatsapp:hover {
+    color: whitesmoke;
+    background-color: #25d366;
+}
