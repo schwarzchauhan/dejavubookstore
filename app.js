@@ -1,9 +1,11 @@
 require('dotenv').config();
+// console.log(process.env);
 const fs = require('fs');
 const express = require("express");
 const app = express();
 const path = require('path');
 const ejs = require('ejs');
+const mongoose = require('mongoose');
 const registerRoute = require('./routes/register');
 const usersRoute = require('./routes/users');
 
