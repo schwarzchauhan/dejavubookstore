@@ -48,10 +48,12 @@ router.route('/')
         } else {
             const u = new User({
                 username: req.body.uname,
+                password: req.body.pwd,
                 email: req.body.email
             });
+            console.log(u);
             u.save(function(err) {
-                if (err) return handleError(err);
+                if (err) return console.log(err);
                 // saved!
                 console.log('user saved');
                 res.status(201).json({

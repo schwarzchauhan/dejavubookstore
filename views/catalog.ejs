@@ -1,0 +1,30 @@
+<%- include('./partials/header'); -%>
+
+    <div class="my-user-cont">
+        <div class="container">
+            <div class="row row-cols-1  row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+                <% for( let i = 0; i < a.length; i++ ) { %>
+                    <div class="col">
+                        <div class="my-card-cont">
+                            <div class="card" style="width: 15rem;">
+                                <img src="<%=a[i].imgSrc%>" class="card-img-top" alt="..." height="250px">
+
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= a[i].title %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= (a[i].desc).substring(0, 25)+"..."%>
+                                    </p>
+                                    <a href="<%= a[i].selfLink %>" class="btn btn-primary">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <% } %>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./partials/footer'); -%>

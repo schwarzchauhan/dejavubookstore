@@ -1,6 +1,7 @@
 body {
-    background: linear-gradient(135deg, #161b22, darkslategrey, #333, firebrick);
+    background: linear-gradient(90deg, #161b22, darkslategrey, #333, firebrick);
     height: 100%;
+    font-family: 'Mochiy Pop One', sans-serif;
 }
 
 ul {
@@ -33,6 +34,14 @@ li {
 
 /*  */
 
+.my-dashboard-cont {
+    margin-top: 1rem;
+    color: whitesmoke;
+}
+
+
+/*  */
+
 .myFooter-cont {
     background-color: rgba(0, 0, 0, 0.9);
     color: white;
@@ -41,6 +50,11 @@ li {
 .my-f-webpolicy a {
     text-decoration: none;
     color: whitesmoke;
+    transition: 0.5s color linear 0s;
+}
+
+.my-f-webpolicy a:hover {
+    color: gold;
 }
 
 .my-f-followUs .fab {
