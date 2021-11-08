@@ -1,0 +1,35 @@
+<%- include('./partials/header'); -%>
+
+
+    <section>
+        <div class="container bg-dark">
+
+            <div class="card text-white bg-dark mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="<%= imgUrl  %>" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= title %>
+                            </h5>
+                            <p class="card-text">
+                                <%= desc %>
+                            </p>
+                            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                            <a href="https://wa.me/918221875710?text=<%= urlEncodedData %>" class="btn btn-primary">Send Details to Seller</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+    <%- include('./partials/footer'); -%>

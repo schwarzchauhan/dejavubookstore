@@ -13,6 +13,7 @@ const client = new OAuth2Client(process.env.YOUR_GOOGLE_CLIENT_ID);
 const registerRoute = require('./routes/register');
 const usersRoute = require('./routes/users');
 const booksRoute = require('./routes/books');
+const orderRoute = require('./routes/order');
 
 
 mongoose.connect(process.env.MONGO_DB_URL).then(
@@ -36,6 +37,7 @@ app.set('view engine', 'ejs');
 app.use('/register', registerRoute);
 app.use('/users', usersRoute);
 app.use('/books', booksRoute);
+app.use('/order', orderRoute);
 // console.log(arguments);
 // console.log(require("module").wrapper);
 

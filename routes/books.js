@@ -19,7 +19,7 @@ router.route('/search')
     url += '&maxResults=40';
     https.get(url, (resp) => {
         console.log('statusCode:', resp.statusCode);
-        console.log('headers:', resp.headers);
+        // console.log('headers:', resp.headers);
 
         var jsondata = "";
 

@@ -16,7 +16,10 @@
                                     <p class="card-text">
                                         <%= (a[i].desc).substring(0, 25)+"..."%>
                                     </p>
-                                    <a href="<%= a[i].selfLink %>" class="btn btn-primary">Add to cart</a>
+                                    <form action="/order" method="POST">
+                                        <input type="hidden" name="bookLink" id="bookLink" value="<%= a[i].selfLink %>">
+                                        <button type="submit" class="btn btn-primary">Order</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
