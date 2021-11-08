@@ -47,9 +47,9 @@ router.route('/')
                 // });
                 // console.log(volumeInfoObj.title);
                 // console.log(volumeInfoObj.description);
-                // const title = volumeInfoObj.title;
-                // const desc = volumeInfoObj.description;
-                // const imgUrl = volumeInfoObj.imageLinks.thumbnail;
+                const title = volumeInfoObj.title;
+                const desc = volumeInfoObj.description;
+                const imgUrl = volumeInfoObj.imageLinks.thumbnail;
 
                 const urlEncodedData = encodeURIComponent("title : " + title + "\ndescription : " + desc);
                 // console.log(urlEncodedData);
