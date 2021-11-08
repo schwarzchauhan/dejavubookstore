@@ -6,11 +6,21 @@ const app = express();
 const path = require('path');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client(process.env.YOUR_GOOGLE_CLIENT_ID);
 const registerRoute = require('./routes/register');
 const usersRoute = require('./routes/users');
 const booksRoute = require('./routes/books');
+
+
+mongoose.connect(process.env.MONGO_DB_URL).then(
+    () => { console.log('ready to use'); },
+    err => { console.log(err); }
+);
+const User = require('./models/user');
+
 
 //
 app.use(express.urlencoded({
@@ -65,6 +75,7 @@ app.route('/login')
         // If request specified a G Suite domain:
         // const domain = payload['hd'];
         console.log(payload);
+        console.log(payload.picture);
         // res.status(200).json({
         //     status: 'success',
         //     data: {
@@ -77,6 +88,48 @@ app.route('/login')
 
     // res.render('login', { YOUR_CLIENT_ID: process.env.YOUR_CLIENT_ID });
 });
+
+app.route('/login/db')
+
+.post((req, res) => {
+
+    User.findOne({ username: req.body.uname_email }, function(err, u) {
+        if (err) return console.log(err);
+        console.log(u);
+
+        if (u) {
+            // res.status(200).json({
+            //     status: 'success',
+            //     data: {
+            //         u
+            //     }
+            // });
+            bcrypt.compare(req.body.pwd, u.password, function(err, result) {
+                if (result) {
+                    res.render('dashboard', { profileImgUrl: '/pix/defaultProfileImg.jpg', profileName: u.username });
+                    // res.status(200).json({
+                    //     status: 'success',
+                    //     data: {
+                    //         u
+                    //     }
+                    // });
+                } else {
+                    res.render('info', { imgUrl: '/pix/info/401.jpg', message: 'Error 401 : Unauthorized' });
+                    // res.status(200).json({
+                    //     status: 'success',
+                    //     data: {
+                    //         message: "wrong password"
+                    //     }
+                    // });
+                }
+            });
+        } else {
+            res.render('info', { imgUrl: '/pix/info/404.jfif', message: 'Error 404: Not found, username not registered' });
+
+        }
+    });
+});
+
 
 // ~~~~~~~~~~~~~ code for listening to port
 

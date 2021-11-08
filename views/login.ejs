@@ -1,14 +1,37 @@
 <%- include('./partials/header'); -%>
 
-    <!-- <div class="container">
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        <a href="#" onclick="signOut();">Sign out</a>
-    </div> -->
-    <div class="container">
-        <div id="g_id_onload" data-client_id="<%= YOUR_GOOGLE_CLIENT_ID %>" data-context="signin" data-ux_mode="popup" data-login_uri="https://polar-shelf-27307.herokuapp.com/login" data-auto_prompt="false">
+
+    <section>
+        <div class="container">
+            <div class="my-login-cont">
+                <h1>Login</h1>
+                <hr>
+                <div class="my-googlelogin-cont">
+                    <div id="g_id_onload" data-client_id="<%= YOUR_GOOGLE_CLIENT_ID %>" data-context="signin" data-ux_mode="popup" data-login_uri="https://polar-shelf-27307.herokuapp.com/login" data-auto_prompt="false">
+                    </div>
+
+                    <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="filled_black" data-text="signin_with" data-size="large" data-logo_alignment="center">
+                    </div>
+                </div>
+                <hr>
+                <div class="my-dblogin-cont">
+                    <form class="my-dblogin-form" action="/login/db" method="POST">
+                        <div class="form-group">
+                            <label for="uname_email">Username or email address</label>
+                            <input type="uname" class="form-control" name="uname_email" id="uname_email" placeholder="Enter the username...">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Password</label>
+                            <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Enter the password...">
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
 
-        <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="filled_black" data-text="signin_with" data-size="large" data-logo_alignment="right">
-        </div>
-    </div>
+    </section>
+
     <%- include('./partials/footer'); -%>

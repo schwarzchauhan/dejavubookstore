@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 mongoose.connect(process.env.MONGO_DB_URL).then(
     () => { console.log('ready to use'); },
@@ -46,22 +48,27 @@ router.route('/')
                 }
             });
         } else {
-            const u = new User({
-                username: req.body.uname,
-                password: req.body.pwd,
-                email: req.body.email
-            });
-            console.log(u);
-            u.save(function(err) {
+            bcrypt.hash(req.body.pwd, saltRounds, function(err, hash) {
+                // Store hash in your password DB.
                 if (err) return console.log(err);
-                // saved!
-                console.log('user saved');
-                res.status(201).json({
-                    status: 'success',
-                    data: {
-                        newUser: u,
-                        messsage: 'new user created'
-                    }
+                const u = new User({
+                    username: req.body.uname,
+                    password: hash,
+                    email: req.body.email
+                });
+                console.log(u);
+                u.save(function(err) {
+                    if (err) return console.log(err);
+                    // saved!
+                    console.log('user saved');
+                    // res.status(201).json({
+                    //     status: 'success',
+                    //     data: {
+                    //         newUser: u,
+                    //         messsage: 'new user created'
+                    //     }
+                    // });
+                    res.render('dashboard', { profileName: req.body.uname, profileImgUrl: '/pix/defaultProfileImg.jpg' })
                 });
             });
         }

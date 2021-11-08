@@ -7,14 +7,14 @@ const userSchema = new Schema({
         required: [true, 'username not provided'],
         unique: true
     },
+    email: {
+        type: String,
+        required: [true, 'email not provided']
+    },
     password: {
         type: String,
         required: [true, 'password not provided'],
         minLength: [8, 'password length must be at least 8 characters']
-    },
-    email: {
-        type: String,
-        required: [true, 'email not provided']
     },
     usertype: {
         type: String,
