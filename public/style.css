@@ -17,6 +17,56 @@ section {
     height: 100%;
 }
 
+
+/*  */
+
+.my-side-nav {
+    display: none;
+    position: fixed;
+    top: 35%;
+    left: 0px;
+    overflow-x: visible;
+    z-index: 5;
+}
+
+.my-side-nav a.my-sinnbold {
+    position: absolute;
+    width: 200px;
+    color: whitesmoke;
+    white-space: nowrap;
+    font-size: 25px;
+    text-decoration: none;
+    cursor: grab;
+    opacity: 0.6;
+}
+
+.my-side-nav .fab {
+    position: absolute;
+    right: 0;
+    color: #333;
+    font-size: 1.5rem;
+    padding: 0.4rem;
+    border-radius: 50%;
+}
+
+.my-side-nav a.my-sinnbold:hover {
+    opacity: 1;
+}
+
+.slideRight {
+    animation: slideRight 0.5s ease-out 0s 1 forwards;
+}
+
+@keyframes slideRight {
+    0% {}
+    100% {
+        left: 5px;
+    }
+}
+
+
+/*  */
+
 .my-login-cont {
     text-align: center;
     color: whitesmoke;
@@ -108,6 +158,18 @@ section {
     background-color: whitesmoke;
 }
 
+.fa-youtube {
+    background-color: whitesmoke;
+}
+
+.fa-linkedin {
+    background-color: whitesmoke;
+}
+
+.fa-facebook {
+    background-color: whitesmoke;
+}
+
 .fa-instagram:hover {
     color: whitesmoke;
     background-color: #8a3ab9;
@@ -121,4 +183,10 @@ section {
 .fa-whatsapp:hover {
     color: whitesmoke;
     background-color: #25d366;
+}
+
+@media screen and (min-width: 576px) {
+    .my-side-nav {
+        display: block;
+    }
 }

@@ -45,12 +45,12 @@ router.route('/')
                 //         volumeInfoObj
                 //     }
                 // });
-                // console.log(volumeInfoObj.title);
-                // console.log(volumeInfoObj.description);
                 const title = volumeInfoObj.title;
                 const desc = volumeInfoObj.description;
                 const imgUrl = volumeInfoObj.imageLinks.thumbnail;
-
+                // console.log(title);
+                // console.log(desc);
+                // console.log(imgUrl);
                 const urlEncodedData = encodeURIComponent("title : " + title + "\ndescription : " + desc);
                 // console.log(urlEncodedData);
                 res.render('detail', { title: title, desc: desc, urlEncodedData: urlEncodedData, imgUrl: imgUrl });
